@@ -14,11 +14,24 @@ Creates a docker image containing https://github.com/wesselt/bunq2ynab
 
 Starting auto sync
 
-`docker run --rm -d --network host --name hszer0\bunq2ynab:2020-02-06 -v path-to-config:/bunq2ynab/config.json`
+`docker run --rm -d --network host --name hszer0\bunq2ynab:2021-02-06 -v path-to-config:/bunq2ynab/config.json`
 
 Starting manual sync
 
-`docker run --rm -d --network host --name hszer0\bunq2ynab:2020-02-06 -v path-to-config:/bunq2ynab/config.json python bunq2ynab.py`
+`docker run --rm -d --network host --name hszer0\bunq2ynab:2021-02-06 -v path-to-config:/bunq2ynab/config.json python bunq2ynab.py`
+
+### Docker-compose
+
+```
+version: '3.5'
+
+services:
+  bunq2ynab:
+    image: hszer0/bunq2ynab:2021-02-06
+    network_mode: "host"
+    volumes:
+      - ./config.json:/bunq2ynab/config.json
+```
 
 ### Docker on Synology
 
